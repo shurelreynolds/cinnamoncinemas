@@ -1,0 +1,28 @@
+@startuml
+class TicketController{
+-Cinema cinema
++allocateSeats():Ticket[]
++getAllocatedSeats():Integer
++getAvailableSeats():Integer
++canBook(Integer ticketCount):boolean
+
+}
+class Ticket{
+-String code
+}
+class Cinema{
+-Row [3]rows;
+}
+class Row{
+String name
+-Seat [5]seats
+}
+class Seat{
+-boolean allocated
+}
+Cinema *- Row :3
+Row *- Seat:5
+Ticket - Row :1
+Ticket - Seat :1
+
+@enduml
